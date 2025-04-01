@@ -2,10 +2,10 @@ import { useState } from 'react';
 import './style.css';
 
 function AmbiguousCase() {
-    const [aAngle, aAngle2] = useState();
-    const [aSide, aSide2] = useState();
-    const [bSide, bSide2] = useState();
-    const [ambiguousResult, ambiguousResult2] = useState();
+    const [aAngle, setAAngle] = useState();
+    const [aSide, setASide] = useState();
+    const [bSide, setBSide] = useState();
+    const [ambiguousResult, setAmbResult] = useState();
 
     function AmbgCa(e) {
         e.preventDefault();
@@ -13,40 +13,40 @@ function AmbiguousCase() {
 
         if (aAngle <= 90) {
             if (aSide < hSide) {
-                ambiguousResult2("No triangle");
+                setAmbResult("No triangle");
             } else if (aSide == hSide) {
-                ambiguousResult2("Right triangle");
+                setAmbResult("Right triangle");
             } else if (aSide > bSide) {
-                ambiguousResult2("One triangle");
+                setAmbResult("One triangle");
             } else if (hSide < aSide && aSide < bSide) {
-                ambiguousResult2("Two triangles (ambiguous case)");
+                setAmbResult("Two triangles (ambiguous case)");
             }
         } else if (aAngle < 180) {
             if (aSide < bSide || aSide == bSide) {
-                ambiguousResult2("No triangle");
+                setAmbResult("No triangle");
             } else {
-                ambiguousResult2("One triangle");
+                setAmbResult("One triangle");
             }
         } else {
-            ambiguousResult2("Please enter an angle between 0-180");
+            setAmbResult("Please enter an angle between 0-180");
         }
     }
 
     return (
         <form onSubmit={(e) => AmbgCa(e)}>
-            <div class="ambiguous-container">
+            <div className="container">
                 <h1>Ambiguous Case</h1>
-                <form id="ambiguous-form">
+                <div className="altForm">
                     <label>Angle A</label>
-                    <input type="number" value={aAngle} placeholder="Please enter your A value" step=".01" onChange={(event) => {aAngle2(event.target.target.value)}} required/>
+                    <input type="number" value={aAngle} placeholder="Please enter your A value" step=".01" onChange={(event) => {setAAngle(event.target.value)}} required/>
                     <label>Side a:</label>
-                    <input type="number" value={aSide} placeholder="Please enter your B value" step=".01" min='0' onChange={(event) => {aSide2(event.target.target.value)}} required/>
+                    <input type="number" value={aSide} placeholder="Please enter your B value" step=".01" min='0' onChange={(event) => {setASide(event.target.value)}} required/>
                     <label>Side b:</label>
-                    <input type="number" value={bSide} placeholder="Please enter your C value" step=".01" min='0' onChange={(event) => {bSide2(event.target.target.value)}} required/>
-                    <label for="ambiguous-result">Triangle Type (Result)</label>
-                    <input type="text" value={ambiguousResult} readonly />
+                    <input type="number" value={bSide} placeholder="Please enter your C value" step=".01" min='0' onChange={(event) => {setBSide(event.target.value)}} required/>
+                    <label >Triangle Type (Result)</label>
+                    <input type="text" value={ambiguousResult} readOnly />
                     <input type="submit" value="Calculate"/>
-                </form>
+                </div>
             </div>
         </form>
 

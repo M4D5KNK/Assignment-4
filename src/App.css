@@ -1,0 +1,21 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.functions {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-row: auto auto;
+    place-items: center;
+    width: 100%;
+    align-items: center;
+}

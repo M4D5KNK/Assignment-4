@@ -3,17 +3,7 @@
     padding: 0px;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    height: 100vh;
-}
-
-/* ASK MATT ABOUT THE CLASSES */
-.heron-container,
-.ambiguous-container,
-.newton-container,
-.polynomial-container {
+.container {
     background-color: rgb(211, 210, 210);
     border: 1px solid #ccc;
     border-radius: 15px;
@@ -24,7 +14,7 @@ body {
     box-shadow: 20px 20px 15px rgba(0, 0, 0, 0.1);
 }
 
-form {
+.altForm {
     display: flex;
     flex-direction: column;
 }
